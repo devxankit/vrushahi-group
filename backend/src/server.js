@@ -1,0 +1,17 @@
+import app from './app.js'
+import { env } from './config/env.js'
+
+const server = app.listen(env.port, () => {
+  console.log(`Server running in ${env.nodeEnv} mode on port ${env.port}`)
+})
+
+// Fail loudly instead of leaving the process in a broken state.
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Rejection:', err)
+  server.close(() => process.exit(1))
+})
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err)
+  process.exit(1)
+})
