@@ -1,25 +1,43 @@
-import { useEffect, useState } from 'react'
-import { getHealth } from '@/services/healthService'
+import Seo from '@/components/seo/Seo'
+import Container from '@/components/ui/Container'
+import SectionHeading from '@/components/ui/SectionHeading'
+import Hero from '@/components/home/Hero'
+import ValueProps from '@/components/home/ValueProps'
+import ExperienceBlock from '@/components/home/ExperienceBlock'
+import BusinessUnitGrid from '@/components/home/BusinessUnitGrid'
+import CtaBand from '@/components/home/CtaBand'
+import { businessUnits } from '@/data/businessUnits'
+import { siteConfig } from '@/config/site'
 
 export default function Home() {
-  const [status, setStatus] = useState('checking...')
-
-  useEffect(() => {
-    getHealth()
-      .then((data) => setStatus(data?.status ?? 'unknown'))
-      .catch(() => setStatus('unreachable'))
-  }, [])
-
   return (
-    <section className="space-y-4">
-      <h1 className="text-2xl font-bold">Frontend is wired up 🎉</h1>
-      <p className="text-gray-600">
-        React + Vite + Tailwind CSS on the frontend, Express on the backend.
-      </p>
-      <div className="rounded-lg border border-gray-200 bg-white p-4">
-        <p className="text-sm text-gray-500">Backend health check:</p>
-        <p className="mt-1 font-mono text-sm">{status}</p>
-      </div>
-    </section>
+    <>
+      <Seo
+        title="Diversified Business Conglomerate in Sangli"
+        description={siteConfig.description}
+      />
+
+      {/* The page's single <h1> lives in the hero — the legacy pages carried
+          several per page (PRD B7). */}
+      <Hero />
+      <ValueProps />
+      <ExperienceBlock />
+
+      <section className="py-20 sm:py-28">
+        <Container width="wide">
+          <SectionHeading
+            eyebrow="Our Group"
+            title={`${businessUnits.length} divisions, one group`}
+            description="Vrushahi operates across agriculture and export, financial technology, digital marketing, events and entertainment, mining, infrastructure, pharmaceuticals, education and IT."
+          />
+
+          <div className="mt-14">
+            <BusinessUnitGrid />
+          </div>
+        </Container>
+      </section>
+
+      <CtaBand />
+    </>
   )
 }

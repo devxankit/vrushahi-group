@@ -1,10 +1,10 @@
 import { Router } from 'express'
 import healthRoutes from './health.routes.js'
+import formRoutes from './form.routes.js'
 
 const router = Router()
 
-// Mount feature routers here as the app grows, e.g.:
-// router.use('/users', userRoutes)
 router.use('/health', healthRoutes)
+router.use('/', formRoutes)
 
 export default router

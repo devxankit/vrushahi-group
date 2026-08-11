@@ -8,16 +8,21 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
+    "smoke": "vite build --ssr scripts/smokeRender.jsx --outDir dist-smoke --logLevel error && node dist-smoke/smokeRender.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.7.1",
     "@tailwindcss/vite": "^4.3.3",
     "axios": "^1.19.0",
+    "motion": "^13.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-hook-form": "^7.85.0",
     "react-router-dom": "^7.18.2",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",

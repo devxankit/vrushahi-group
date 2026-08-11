@@ -1,8 +1,13 @@
 import app from './app.js'
-import { env } from './config/env.js'
+import { env, reportConfigWarnings } from './config/env.js'
+import { verifyMailTransport } from './config/mailer.js'
+
+reportConfigWarnings()
+verifyMailTransport()
 
 const server = app.listen(env.port, () => {
   console.log(`Server running in ${env.nodeEnv} mode on port ${env.port}`)
+  console.log(`Accepting requests from: ${env.clientUrls.join(', ')}`)
 })
 
 // Fail loudly instead of leaving the process in a broken state.

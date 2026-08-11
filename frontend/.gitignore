@@ -35,3 +35,6 @@ Thumbs.db
 *.sw?
 
 *.local
+
+# Render smoke-test output
+dist-smoke
