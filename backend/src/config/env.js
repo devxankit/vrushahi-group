@@ -32,6 +32,12 @@ export const env = {
   /** Allowed browser origins. Comma-separate for multiple deployments. */
   clientUrls: toList(process.env.CLIENT_URL, ['http://localhost:5173']),
 
+  mongodbUri:
+    process.env.MONGODB_URI ||
+    'mongodb+srv://ram312908_db_user:htbxpnOFQNm0nxAU@cluster0.kk8ir4w.mongodb.net/vrushahi?retryWrites=true&w=majority',
+  jwtSecret: process.env.JWT_SECRET || 'vrushahi_super_secret_jwt_key_2026_x89f',
+  jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',
+
   /**
    * Number of proxy hops in front of this server (0 when running directly).
    * express-rate-limit needs an accurate value to identify client IPs, and

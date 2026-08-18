@@ -26,6 +26,12 @@ export default function AboutIndex() {
         title="A group built on people, values and long-term thinking"
         description="Vrushahi is a board-managed professional company committed to creating enduring value for the nation and the shareholder, with a culture rooted in respect for people and belief in empowerment."
         breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'About' }]}
+        image={{
+          alt: 'Vrushahi Group leadership corporate overview and architecture',
+          label: 'About Vrushahi',
+          src: '/images/about-company-profile.png',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

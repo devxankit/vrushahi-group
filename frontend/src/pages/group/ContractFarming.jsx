@@ -39,6 +39,12 @@ export default function ContractFarming() {
           { label: contractFarming.title },
         ]}
         badge={isPending ? <Badge variant="pending">Content pending</Badge> : null}
+        image={{
+          alt: 'Indian agricultural expert and local farmer in commercial farm field',
+          label: 'Contract Farming',
+          src: '/images/contract-farming.png',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

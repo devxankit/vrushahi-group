@@ -50,6 +50,8 @@ app.use(express.urlencoded({ extended: true, limit: '100kb' }))
 app.use(cookieParser())
 app.use(morgan(isProduction ? 'combined' : 'dev'))
 
+app.use('/uploads', express.static('public/uploads'))
+
 // --- Routes ---
 app.get('/', (req, res) => {
   res.json({ message: 'Vrushahi Group API is running' })

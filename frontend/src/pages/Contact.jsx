@@ -30,6 +30,12 @@ export default function Contact() {
         title="Get in touch"
         description="Tell us what you need and we’ll route your enquiry to the right division."
         breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'Contact Us' }]}
+        image={{
+          alt: 'Luxury Vrushahi Group corporate head office reception',
+          label: 'Contact Us',
+          src: '/images/contact-hero.png',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

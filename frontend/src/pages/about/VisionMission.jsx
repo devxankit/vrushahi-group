@@ -21,6 +21,12 @@ export default function VisionMission() {
           { label: 'About', to: '/about' },
           { label: visionMission.navLabel },
         ]}
+        image={{
+          alt: 'Strategic vision of Vrushahi Group soaring corporate architecture',
+          label: visionMission.title,
+          src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

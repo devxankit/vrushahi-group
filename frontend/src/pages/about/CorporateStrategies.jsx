@@ -21,6 +21,12 @@ export default function CorporateStrategies() {
           { label: 'About', to: '/about' },
           { label: corporateStrategies.navLabel },
         ]}
+        image={{
+          alt: 'Corporate Board Directors reviewing Vrushahi Group strategic goals',
+          label: corporateStrategies.title,
+          src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

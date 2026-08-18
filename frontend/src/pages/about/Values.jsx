@@ -21,6 +21,12 @@ export default function Values() {
           { label: 'About', to: '/about' },
           { label: values.navLabel },
         ]}
+        image={{
+          alt: 'Vrushahi Group core values and team partnership',
+          label: values.title,
+          src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

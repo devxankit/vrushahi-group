@@ -50,9 +50,10 @@ export default function Hero() {
         className="absolute inset-0 -bottom-24"
       >
         <PlaceholderImage
-          alt="Wide establishing shot representing the Vrushahi Group — its people, operations and facilities"
-          label="Vrushahi Group — hero image"
-          status="placeholder"
+          alt="Establishing shot of Vrushahi Group corporate headquarters and modern operations"
+          label="Vrushahi Group"
+          src="/images/hero-vrushahi.png"
+          status="final"
           tone="dark"
           aspect="h-full"
           kenBurns

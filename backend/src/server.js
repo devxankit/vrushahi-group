@@ -1,9 +1,11 @@
 import app from './app.js'
 import { env, reportConfigWarnings } from './config/env.js'
 import { verifyMailTransport } from './config/mailer.js'
+import { connectDB } from './config/db.js'
 
 reportConfigWarnings()
 verifyMailTransport()
+await connectDB()
 
 const server = app.listen(env.port, () => {
   console.log(`Server running in ${env.nodeEnv} mode on port ${env.port}`)

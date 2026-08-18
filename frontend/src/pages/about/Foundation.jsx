@@ -30,6 +30,12 @@ export default function Foundation() {
           { label: foundation.navLabel },
         ]}
         badge={<Badge variant="pending">Content pending</Badge>}
+        image={{
+          alt: 'Vrushahi Foundation community empowerment and social CSR initiatives',
+          label: foundation.title,
+          src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

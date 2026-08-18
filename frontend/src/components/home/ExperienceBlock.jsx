@@ -42,6 +42,8 @@ export default function ExperienceBlock() {
               <PlaceholderImage
                 alt="Vrushahi team members in training or at work across the group's divisions"
                 label="Our people"
+                src="/images/experience-people.png"
+                status="final"
                 aspect="aspect-[4/3]"
               />
             </div>

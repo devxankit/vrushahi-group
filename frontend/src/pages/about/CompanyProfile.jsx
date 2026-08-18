@@ -22,6 +22,12 @@ export default function CompanyProfile() {
           { label: 'About', to: '/about' },
           { label: companyProfile.navLabel },
         ]}
+        image={{
+          alt: 'Vrushahi Group Corporate Head Office and Boardroom',
+          label: companyProfile.title,
+          src: '/images/about-company-profile.png',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">
@@ -36,6 +42,8 @@ export default function CompanyProfile() {
                 <PlaceholderImage
                   alt="Vrushahi Group leadership and team at the Sangli head office"
                   label="Company profile"
+                  src="/images/about-company-profile.png"
+                  status="final"
                   aspect="aspect-[4/5]"
                 />
               </div>

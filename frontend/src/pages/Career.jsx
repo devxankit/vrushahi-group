@@ -32,6 +32,12 @@ export default function Career() {
         title="Build your career with Vrushahi"
         description="Send us your details and your resume, and we’ll be in touch if there’s a match across any of our divisions."
         breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'Career' }]}
+        image={{
+          alt: 'Energetic professionals collaborating in modern Vrushahi Group workspace',
+          label: 'Career',
+          src: '/images/career-hero.png',
+          status: 'final',
+        }}
       />
 
       <section className="py-20 sm:py-24">

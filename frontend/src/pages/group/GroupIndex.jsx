@@ -25,6 +25,12 @@ export default function GroupIndex() {
         title={`${businessUnits.length} divisions, one group`}
         description="Several divisions run their own operations and microsites. This is the full list, grouped the way the business is organised."
         breadcrumbs={[{ label: 'Home', to: '/' }, { label: 'Group' }]}
+        image={{
+          alt: 'Vrushahi Group multi-industry business divisions establishing view',
+          label: 'Our Group',
+          src: '/images/hero-vrushahi.png',
+          status: 'final',
+        }}
       />
 
       {CLUSTER_ORDER.map((cluster, index) => {
