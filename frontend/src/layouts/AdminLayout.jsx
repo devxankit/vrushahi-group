@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import Icon from '@/components/ui/Icon'
+import logoMark from '@/assets/logo-mark.png'
 
 const adminNavItems = [
   { label: 'Dashboard', path: '/admin/dashboard', icon: 'grid' },
@@ -37,9 +38,11 @@ export default function AdminLayout() {
           </button>
 
           <Link to="/admin/dashboard" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-amber-brand-500 font-display text-base font-bold text-white shadow-md">
-              V
-            </span>
+            <img
+              src={logoMark}
+              alt="Vrushahi Group Logo"
+              className="h-9 w-9 object-contain"
+            />
             <div className="hidden sm:block">
               <span className="font-display text-base font-semibold tracking-wide text-white block leading-tight">
                 VRUSHAHI
