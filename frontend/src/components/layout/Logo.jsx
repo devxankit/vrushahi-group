@@ -1,39 +1,42 @@
 import { Link } from 'react-router-dom'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/cn'
+import logoMark from '@/assets/logo-mark.png'
+import logoTransparent from '@/assets/logo-transparent.png'
 
 /**
- * Placeholder logo lockup.
- *
- * Like every other image on the site, the logo is a placeholder — no legacy
- * artwork is carried over. The mark carries a dashed ring and a title/aria note
- * so it reads unmistakably as provisional without disfiguring the header.
- *
- * TO REPLACE: drop the final asset in /public, swap the <span> mark below for
- * an <img>, and remove the dashed ring. Nothing else references the mark.
+ * Vrushahi Group Brand Logo component using the official logo artwork.
  */
-export default function Logo({ tone = 'dark', className }) {
+export default function Logo({ tone = 'dark', variant = 'mark', className }) {
   const onDark = tone === 'light'
+
+  if (variant === 'full') {
+    return (
+      <Link
+        to="/"
+        aria-label={`${siteConfig.name} — home.`}
+        className={cn('group flex items-center', className)}
+      >
+        <img
+          src={logoTransparent}
+          alt={siteConfig.name}
+          className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        />
+      </Link>
+    )
+  }
 
   return (
     <Link
       to="/"
-      aria-label={`${siteConfig.name} — home. Placeholder logo, final artwork pending.`}
+      aria-label={`${siteConfig.name} — home.`}
       className={cn('group flex items-center gap-3', className)}
     >
-      <span
-        title="Placeholder logo — final artwork pending"
-        aria-hidden="true"
-        className={cn(
-          'grid h-10 w-10 place-items-center rounded-xl border-2 border-dashed',
-          'bg-gradient-to-br from-brand-500 to-amber-brand-500',
-          'font-display text-lg font-bold text-white',
-          'transition-transform duration-300 group-hover:scale-105',
-          onDark ? 'border-white/40' : 'border-ink-300'
-        )}
-      >
-        V
-      </span>
+      <img
+        src={logoMark}
+        alt="Vrushahi Group Logo"
+        className="h-10 w-10 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
+      />
 
       <span className="flex flex-col leading-none">
         <span
@@ -56,3 +59,4 @@ export default function Logo({ tone = 'dark', className }) {
     </Link>
   )
 }
+
