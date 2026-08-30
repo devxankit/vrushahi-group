@@ -21,8 +21,8 @@ export const siteConfig = {
      * and footer of all 29 pages showed 70300 78470, while contact-us.php showed
      * 77300 78470. Client confirmed 70300 78470.
      */
-    phone: '+91 70300 78470',
-    phoneHref: 'tel:+917030078470',
+    phone: '+91 9970907005',
+    phoneHref: 'tel:+919970907005',
 
     email: 'info@vrushahi.com',
     emailHref: 'mailto:info@vrushahi.com',

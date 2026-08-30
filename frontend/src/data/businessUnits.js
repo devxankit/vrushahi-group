@@ -22,7 +22,7 @@
  */
 
 /**
- * @typedef {'Agri & Market'|'Events & Entertainment'|'Learning Systems'|'Technologies'|null} Cluster
+ * @typedef {'Agri & Market'|'Events & Entertainment'|'Technologies'|'Digital Platforms & Mobility'|null} Cluster
  */
 
 /**
@@ -103,17 +103,18 @@ export const businessUnits = [
   {
     slug: 'vru-market',
     name: 'VRU Market',
-    // Legacy heading was "VRUMARKET" with no space and, unlike every sibling,
-    // no "Vrushahi" prefix (PRD A9.7). Normalised to "VRU Market" — the "VRU"
-    // already carries the brand, so prefixing would read as "Vrushahi Vrushahi".
     shortLabel: 'VRU Market',
-    cluster: 'Agri & Market',
+    cluster: 'Digital Platforms & Mobility',
     heroImage: '/images/units/vru-market.png',
-    heroImageAlt: 'VRU Market retail storefront',
-    summary: PLACEHOLDER_SUMMARY,
-    body: PLACEHOLDER_BODY,
-    externalSiteUrl: null,
-    contentStatus: 'placeholder',
+    heroImageAlt: 'VRU Market online superstore and retail storefront',
+    summary:
+      'VRU Market — your trusted digital supermarket and reliable online store for quality consumer products.',
+    body: [
+      'VRU Market is an integrated retail superstore and online marketplace offering a comprehensive selection of groceries, personal care, and daily household items.',
+      'Dedicated to delivering maximum value for money, VRU Market guarantees authentic products, swift local delivery, and exceptional customer service.',
+    ],
+    externalSiteUrl: 'http://vrumarket.com',
+    contentStatus: 'complete',
     imageStatus: 'final',
   },
 
@@ -233,7 +234,7 @@ export const businessUnits = [
     name: 'Vrushahi Import & Export',
     shortLabel: 'Import & Export',
     cluster: null,
-    heroImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/units/import-export.png',
     heroImageAlt: 'Export cargo being prepared for international shipment',
     summary:
       'Exporting Indian spices, nuts, vegetables, handicrafts and coir-based products worldwide.',
@@ -246,24 +247,11 @@ export const businessUnits = [
     imageStatus: 'final',
   },
   {
-    slug: 'infra-buildcon',
-    name: 'Vrushahi Infra Buildcon',
-    shortLabel: 'Infra Buildcon',
-    cluster: null,
-    heroImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1200&q=80',
-    heroImageAlt: 'Construction site with structural work underway',
-    summary: PLACEHOLDER_SUMMARY,
-    body: PLACEHOLDER_BODY,
-    externalSiteUrl: null,
-    contentStatus: 'placeholder',
-    imageStatus: 'final',
-  },
-  {
     slug: 'industries',
     name: 'Vrushahi Industries',
     shortLabel: 'Industries',
     cluster: null,
-    heroImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/units/industries.png',
     heroImageAlt: 'Manufacturing facility production floor',
     summary: PLACEHOLDER_SUMMARY,
     body: PLACEHOLDER_BODY,
@@ -272,35 +260,6 @@ export const businessUnits = [
     imageStatus: 'final',
   },
 
-  // --- Learning Systems ---------------------------------------------------
-  {
-    slug: 'international-school',
-    name: 'Vrushahi International School & Colleges',
-    shortLabel: 'International School & Colleges',
-    cluster: 'Learning Systems',
-    heroImage: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
-    heroImageAlt: 'School campus building and grounds',
-    summary: PLACEHOLDER_SUMMARY,
-    body: PLACEHOLDER_BODY,
-    externalSiteUrl: null,
-    contentStatus: 'placeholder',
-    imageStatus: 'final',
-  },
-  {
-    slug: 'ves-exam',
-    // Legacy heading read "VRUSHAHI SRARCH ELIGIBITY EXAM" — two typos, corrected
-    // here per PRD A4.14 / A9.7.
-    name: 'Vrushahi Search Eligibility Exam',
-    shortLabel: 'VES Exam',
-    cluster: 'Learning Systems',
-    heroImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80',
-    heroImageAlt: 'Students sitting a written examination in a hall',
-    summary: PLACEHOLDER_SUMMARY,
-    body: PLACEHOLDER_BODY,
-    externalSiteUrl: null,
-    contentStatus: 'placeholder',
-    imageStatus: 'final',
-  },
 
   // --- Standalone ---------------------------------------------------------
   {
@@ -308,7 +267,7 @@ export const businessUnits = [
     name: 'Vrushahi Pharmaceuticals',
     shortLabel: 'Pharmaceuticals',
     cluster: null,
-    heroImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/units/pharmaceuticals.png',
     heroImageAlt: 'Pharmaceutical production and packaging line',
     summary: PLACEHOLDER_SUMMARY,
     body: PLACEHOLDER_BODY,
@@ -323,7 +282,7 @@ export const businessUnits = [
     name: 'Vrushahi Financial Technologies — Majha ATM',
     shortLabel: 'Financial Technologies',
     cluster: 'Technologies',
-    heroImage: 'https://images.unsplash.com/photo-1556742049-0a670fc80782?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/units/financial-technologies.png',
     heroImageAlt: 'Shopkeeper serving a customer at a Majha ATM banking point',
     summary:
       'Majha ATM — a hyper-local payments network that turns local shops into digital mini-banks.',
@@ -343,12 +302,86 @@ export const businessUnits = [
     name: 'Vrushahi Information Technologies',
     shortLabel: 'Information Technologies',
     cluster: 'Technologies',
-    heroImage: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/images/units/information-technologies.png',
     heroImageAlt: 'Software development team working at a bank of screens',
     summary: PLACEHOLDER_SUMMARY,
     body: PLACEHOLDER_BODY,
     externalSiteUrl: null,
     contentStatus: 'placeholder',
+    imageStatus: 'final',
+  },
+
+  // --- Digital Platforms & Mobility ---------------------------------------
+  {
+    slug: 'nowstay',
+    name: 'NowStay Hotel & Staycation Bookings',
+    shortLabel: 'NowStay',
+    cluster: 'Digital Platforms & Mobility',
+    heroImage: '/images/units/nowstay.png',
+    heroImageAlt: 'NowStay hotel and staycation booking mobile platform',
+    summary:
+      'Instant hotel, luxury resort, and staycation reservation platform offering seamless bookings across India.',
+    body: [
+      'NowStay is Vrushahi Group’s premier online accommodation and hotel booking platform.',
+      'We connect travelers with verified hotels, luxury resorts, boutique homestays, and staycation rentals at competitive rates.',
+      'Featuring instant booking confirmation, transparent pricing, and 24/7 guest support, NowStay makes travel planning effortless.',
+    ],
+    externalSiteUrl: 'https://nowstay.in',
+    contentStatus: 'complete',
+    imageStatus: 'final',
+  },
+  {
+    slug: 'grhapoch',
+    name: 'Grhapoch Doorstep Home Delivery',
+    shortLabel: 'Grhapoch',
+    cluster: 'Digital Platforms & Mobility',
+    heroImage: '/images/units/grhapoch.png',
+    heroImageAlt: 'Grhapoch doorstep grocery and household delivery service',
+    summary:
+      'Hyperlocal doorstep delivery service bringing fresh groceries, farm produce, and daily essentials right to your home.',
+    body: [
+      'Grhapoch (गृहपोच) delivers fresh groceries, organic farm produce, dairy, and essential household items directly from local markets to your doorstep.',
+      'Our quick, reliable delivery network empowers local vendors and ensures families receive farm-fresh quality with guaranteed hygiene.',
+      'Experience hassle-free ordering, real-time tracking, and scheduled deliveries tailored to your daily household needs.',
+    ],
+    externalSiteUrl: 'http://grhapoch.com/',
+    contentStatus: 'complete',
+    imageStatus: 'final',
+  },
+  {
+    slug: 'jhumaroo',
+    name: 'Jhumaroo Fashion & Lifestyle Marketplace',
+    shortLabel: 'Jhumaroo',
+    cluster: 'Digital Platforms & Mobility',
+    heroImage: '/images/units/jhumaroo.png',
+    heroImageAlt: 'Jhumaroo traditional Indian ethnic fashion boutique display',
+    summary:
+      'Curated e-commerce marketplace for authentic Indian ethnic fashion, handloom apparel, and handcrafted home decor.',
+    body: [
+      'Jhumaroo is an online boutique and lifestyle marketplace celebrating authentic Indian craftsmanship and contemporary fashion.',
+      'We feature handloom sarees, designer ethnic wear, artisan jewelry, and handcrafted home accents directly from master weavers and artisans.',
+      'Empowering regional weavers and designers, Jhumaroo brings timeless heritage fashion straight to your wardrobe.',
+    ],
+    externalSiteUrl: 'http://jhumaroo.in',
+    contentStatus: 'complete',
+    imageStatus: 'final',
+  },
+  {
+    slug: 'now-cars-booking',
+    name: 'Now Cars Mobility & Rental Booking',
+    shortLabel: 'Now Cars Booking',
+    cluster: 'Digital Platforms & Mobility',
+    heroImage: '/images/units/now-cars-booking.png',
+    heroImageAlt: 'Now Cars booking app and chauffeur-driven vehicle service',
+    summary:
+      'On-demand car rental, outstation cab booking, and urban chauffeur mobility services for personal and corporate travel.',
+    body: [
+      'Now Cars is a tech-driven mobility and car booking platform providing transparent, reliable vehicle rental services.',
+      'From daily city rides and outstation cab bookings to luxury corporate fleets, Now Cars ensures well-maintained vehicles and verified drivers.',
+      'Book your ride seamlessly with instant driver allocation, live GPS tracking, and fixed transparent pricing.',
+    ],
+    externalSiteUrl: 'http://nowcarsbooking.com',
+    contentStatus: 'complete',
     imageStatus: 'final',
   },
 ]
@@ -360,8 +393,8 @@ export const businessUnits = [
 export const CLUSTER_ORDER = [
   'Agri & Market',
   'Events & Entertainment',
-  'Learning Systems',
   'Technologies',
+  'Digital Platforms & Mobility',
 ]
 
 /** Route for a unit's detail page. */

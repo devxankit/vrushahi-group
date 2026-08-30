@@ -15,7 +15,7 @@ export default function AdminSiteSettings() {
     city: 'Sangli',
     state: 'Maharashtra',
     addressLines: '',
-    phone: '+91 98220 00000',
+    phone: '+91 9970907005',
     email: 'info@vrushahi.com',
   })
 
