@@ -8,17 +8,15 @@ import { getBusinessUnit, unitPath } from '@/data/businessUnits'
 /**
  * Three feature teasers under the hero.
  *
- * The legacy homepage had this same trio — Events, Import-Export and Majha ATM
- * — but every word of their copy was lorem ipsum (PRD A4.1), so there is
- * nothing to migrate and nothing may be invented in its place. Instead each
- * teaser pulls the real one-line summary straight off its division in the data
+ * The homepage feature trio — Events, Import-Export and VRU Market
+ * — pulls the real one-line summary straight off its division in the data
  * model, so the block carries genuine copy and updates itself if a summary
  * changes.
  */
 const FEATURED = [
   { slug: 'events', icon: 'building' },
   { slug: 'import-export', icon: 'arrowUpRight' },
-  { slug: 'financial-technologies', icon: 'phone' },
+  { slug: 'vru-market', icon: 'shoppingBag' },
 ]
 
 export default function ValueProps() {

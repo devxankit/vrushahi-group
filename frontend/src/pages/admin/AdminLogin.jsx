@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext'
 import Icon from '@/components/ui/Icon'
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState('admin@vrushahi.com')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -100,10 +100,8 @@ export default function AdminLogin() {
           </button>
         </form>
 
-        <div className="mt-6 rounded-2xl border border-white/5 bg-white/[0.02] p-3 text-center text-[11px] text-ink-400">
-          🔒 Restricted portal. Default Admin Credentials: <br />
-          <span className="font-mono text-brand-300">admin@vrushahi.com</span> /{' '}
-          <span className="font-mono text-amber-brand-300">Admin@123456</span>
+        <div className="mt-6 rounded-2xl border border-white/5 bg-white/[0.02] p-3.5 text-center text-xs text-ink-400">
+          🔒 Restricted portal. Authorized Vrushahi Group personnel only.
         </div>
       </div>
     </div>

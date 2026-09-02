@@ -89,7 +89,7 @@ export default function AdminDivisions() {
 
   if (loading) return <PageLoader />
 
-  const clusters = ['All', 'Agri & Market', 'Events & Entertainment', 'Technologies', 'Digital Platforms & Mobility', 'Standalone']
+  const clusters = ['All', 'Agri & Market', 'Events & Entertainment', 'Digital Entertainment', 'Technologies', 'Digital Platforms & Mobility', 'Standalone']
 
   const filteredUnits = units.filter((unit) => {
     const matchesSearch =
@@ -346,6 +346,7 @@ export default function AdminDivisions() {
                   <option value="">Standalone (No Cluster)</option>
                   <option value="Agri & Market">Agri & Market</option>
                   <option value="Events & Entertainment">Events & Entertainment</option>
+                  <option value="Digital Entertainment">Digital Entertainment</option>
                   <option value="Technologies">Technologies</option>
                   <option value="Digital Platforms & Mobility">Digital Platforms & Mobility</option>
                 </select>

@@ -56,14 +56,16 @@ export default function GroupIndex() {
         )
       })}
 
-      <section className="py-16 sm:py-20">
-        <Container width="wide">
-          <SectionHeading eyebrow="Also in the group" title="Independent divisions" />
-          <div className="mt-10">
-            <BusinessUnitGrid units={standalone} />
-          </div>
-        </Container>
-      </section>
+      {standalone.length > 0 && (
+        <section className="py-16 sm:py-20">
+          <Container width="wide">
+            <SectionHeading eyebrow="Also in the group" title="Independent divisions" />
+            <div className="mt-10">
+              <BusinessUnitGrid units={standalone} />
+            </div>
+          </Container>
+        </section>
+      )}
 
       <CtaBand />
     </>

@@ -18,13 +18,13 @@ function MenuLink({ to, label, onNavigate }) {
     <Link
       to={to}
       onClick={onNavigate}
-      className="group/link flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm text-ink-600 transition-colors duration-200 hover:bg-ink-50 hover:text-brand-700"
+      className="group/link flex items-center justify-between gap-3 rounded-lg px-3 py-1.5 text-sm font-normal text-ink-700 transition-colors duration-150 hover:bg-ink-50 hover:text-brand-700"
     >
       <span>{label}</span>
       <Icon
         name="chevronRight"
         size={14}
-        className="-translate-x-1 opacity-0 transition-all duration-200 group-hover/link:translate-x-0 group-hover/link:opacity-100"
+        className="-translate-x-1 opacity-0 text-ink-400 transition-all duration-150 group-hover/link:translate-x-0 group-hover/link:opacity-100 group-hover/link:text-brand-600"
       />
     </Link>
   )
@@ -32,7 +32,7 @@ function MenuLink({ to, label, onNavigate }) {
 
 function ColumnHeading({ children }) {
   return (
-    <p className="mb-2 px-3 text-[11px] font-semibold tracking-[0.16em] text-ink-400 uppercase">
+    <p className="mb-1.5 px-3 text-[11px] font-semibold tracking-[0.14em] text-ink-400 uppercase">
       {children}
     </p>
   )
@@ -59,34 +59,51 @@ export function AboutPanel({ onNavigate }) {
   )
 }
 
-/** Group mega-panel — 4 clusters + standalone divisions + a promo card. */
+/** Group mega-panel — 4 balanced columns + promo card. */
 export function GroupPanel({ onNavigate }) {
   const columns = getGroupMenuColumns()
 
   return (
-    <div className="grid w-[min(72rem,calc(100vw-3rem))] gap-8 p-6 lg:grid-cols-12">
-      <div className="grid gap-x-6 gap-y-7 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
+    <div className="grid w-[min(76rem,calc(100vw-3rem))] gap-8 p-6 lg:grid-cols-12">
+      <div className="grid gap-x-6 gap-y-6 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-4">
         {columns.map((column) => (
-          <div key={column.title} className="min-w-0">
-            <ColumnHeading>{column.title}</ColumnHeading>
-            <ul className="flex flex-col">
-              {column.links.map((link) => (
-                <li key={link.to}>
-                  <MenuLink to={link.to} label={link.label} onNavigate={onNavigate} />
-                </li>
-              ))}
-            </ul>
+          <div key={column.title} className="min-w-0 flex flex-col gap-4">
+            {column.clusters ? (
+              column.clusters.map((cluster) => (
+                <div key={cluster.title} className="min-w-0">
+                  <ColumnHeading>{cluster.title}</ColumnHeading>
+                  <ul className="flex flex-col">
+                    {cluster.links.map((link) => (
+                      <li key={link.to}>
+                        <MenuLink to={link.to} label={link.label} onNavigate={onNavigate} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            ) : (
+              <div className="min-w-0">
+                <ColumnHeading>{column.title}</ColumnHeading>
+                <ul className="flex flex-col">
+                  {column.links.map((link) => (
+                    <li key={link.to}>
+                      <MenuLink to={link.to} label={link.label} onNavigate={onNavigate} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
       <div className="lg:col-span-3">
-        <div className="flex h-full flex-col justify-between gap-5 rounded-2xl bg-ink-950 p-6 text-white">
+        <div className="flex h-full flex-col justify-between gap-5 rounded-2xl bg-ink-950 p-6 text-white shadow-xl">
           <div>
             <p className="font-display text-3xl font-bold">{businessUnits.length}</p>
             <p className="mt-1 text-sm font-medium text-white/80">divisions, one group</p>
             <p className="mt-3 text-xs leading-relaxed text-white/55">
-              From agriculture and export to fintech, media, mining and education.
+              From agriculture and export to fintech, media, mining and digital entertainment.
             </p>
           </div>
           <Button

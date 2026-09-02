@@ -173,6 +173,7 @@ export default function AdminDivisionEdit() {
                 <option value="">Standalone (No Cluster)</option>
                 <option value="Agri & Market">Agri & Market</option>
                 <option value="Events & Entertainment">Events & Entertainment</option>
+                <option value="Digital Entertainment">Digital Entertainment</option>
                 <option value="Technologies">Technologies</option>
                 <option value="Digital Platforms & Mobility">Digital Platforms & Mobility</option>
               </select>

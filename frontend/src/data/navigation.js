@@ -10,13 +10,13 @@
  */
 
 import { aboutPages, aboutPath } from './aboutContent'
-import { getGroupMenuEntries, unitPath } from './businessUnits'
+import { getBusinessUnit, unitPath } from './businessUnits'
 
 /**
  * @typedef {Object} NavLink
  * @property {string} label
  * @property {string} to
- * @property {boolean} [external]
+ * @property {string} [contentStatus]
  */
 
 /** About dropdown items. */
@@ -28,37 +28,73 @@ export function getAboutLinks() {
   }))
 }
 
+/** Helper to format a single unit link */
+function makeUnitLink(slug) {
+  const unit = getBusinessUnit(slug)
+  if (!unit) return null
+  return {
+    label: unit.shortLabel,
+    to: unitPath(unit),
+    contentStatus: unit.contentStatus,
+  }
+}
+
 /**
- * Group mega-menu columns: each cluster becomes a column, and the standalone
- * divisions are collected into their own column so the menu stays balanced.
+ * Group mega-menu columns: 4 visually balanced columns of 4 links each.
  *
- * @returns {Array<{title: string|null, links: NavLink[]}>}
+ * @returns {Array<{title: string, links?: NavLink[], clusters?: Array<{title: string, links: NavLink[]}>}>}
  */
 export function getGroupMenuColumns() {
-  const entries = getGroupMenuEntries()
-  const standalone = []
-  const clusters = []
-
-  for (const entry of entries) {
-    if (entry.type === 'cluster') {
-      clusters.push({
-        title: entry.cluster,
-        links: entry.units.map((unit) => ({
-          label: unit.shortLabel,
-          to: unitPath(unit),
-          contentStatus: unit.contentStatus,
-        })),
-      })
-    } else {
-      standalone.push({
-        label: entry.unit.shortLabel,
-        to: unitPath(entry.unit),
-        contentStatus: entry.unit.contentStatus,
-      })
-    }
-  }
-
-  return [...clusters, { title: 'More divisions', links: standalone }]
+  return [
+    {
+      title: 'Agri & Global Trade',
+      clusters: [
+        {
+          title: 'Agri & Market',
+          links: [makeUnitLink('agriculture')].filter(Boolean),
+        },
+        {
+          title: 'Trade & Resources',
+          links: [makeUnitLink('import-export'), makeUnitLink('beverages'), makeUnitLink('mines-and-minerals')].filter(Boolean),
+        },
+      ],
+    },
+    {
+      title: 'Digital Platforms & Mobility',
+      links: [
+        makeUnitLink('vru-market'),
+        makeUnitLink('nowstay'),
+        makeUnitLink('grhapoch'),
+        makeUnitLink('now-cars-booking'),
+      ].filter(Boolean),
+    },
+    {
+      title: 'Media & Entertainment',
+      clusters: [
+        {
+          title: 'Events & Entertainment',
+          links: [makeUnitLink('events'), makeUnitLink('entertainment-world')].filter(Boolean),
+        },
+        {
+          title: 'Digital Entertainment',
+          links: [makeUnitLink('jhumaroo')].filter(Boolean),
+        },
+      ],
+    },
+    {
+      title: 'Technologies & Industry',
+      clusters: [
+        {
+          title: 'Technologies',
+          links: [makeUnitLink('financial-technologies'), makeUnitLink('information-technologies'), makeUnitLink('digital-marketing')].filter(Boolean),
+        },
+        {
+          title: 'Industries & Health',
+          links: [makeUnitLink('industries'), makeUnitLink('pharmaceuticals')].filter(Boolean),
+        },
+      ],
+    },
+  ]
 }
 
 /** Top-level primary navigation. `children` marks a dropdown/mega-menu trigger. */
@@ -74,7 +110,11 @@ export function getPrimaryNav() {
 
 /** Footer column definitions — same data, flat shape. */
 export function getFooterColumns() {
-  const groupLinks = getGroupMenuColumns().flatMap((column) => column.links)
+  const groupLinks = getGroupMenuColumns().flatMap((column) =>
+    column.clusters
+      ? column.clusters.flatMap((cluster) => cluster.links)
+      : column.links || []
+  )
 
   return [
     {

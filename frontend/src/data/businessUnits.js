@@ -22,7 +22,7 @@
  */
 
 /**
- * @typedef {'Agri & Market'|'Events & Entertainment'|'Technologies'|'Digital Platforms & Mobility'|null} Cluster
+ * @typedef {'Agri & Market'|'Trade & Resources'|'Events & Entertainment'|'Digital Entertainment'|'Technologies'|'Digital Platforms & Mobility'|'Industries & Health'|null} Cluster
  */
 
 /**
@@ -123,7 +123,7 @@ export const businessUnits = [
     slug: 'beverages',
     name: 'Vrushahi Beverages',
     shortLabel: 'Beverages',
-    cluster: null,
+    cluster: 'Trade & Resources',
     heroImage: '/images/units/beverages.png',
     heroImageAlt: 'Vrushahi Beverages product range',
     summary: PLACEHOLDER_SUMMARY,
@@ -136,7 +136,7 @@ export const businessUnits = [
     slug: 'digital-marketing',
     name: 'Vrushahi Digital Marketing Services',
     shortLabel: 'Digital Marketing',
-    cluster: null,
+    cluster: 'Technologies',
     heroImage: '/images/units/digital-marketing.png',
     heroImageAlt: 'Digital marketing team reviewing campaign analytics',
     summary:
@@ -214,13 +214,32 @@ export const businessUnits = [
     contentStatus: 'complete',
     imageStatus: 'final',
   },
+  // --- Digital Entertainment ----------------------------------------------
+  {
+    slug: 'jhumaroo',
+    name: 'Jhumaroo Digital Entertainment & Short Video Platform',
+    shortLabel: 'Jhumaroo',
+    cluster: 'Digital Entertainment',
+    heroImage: '/images/units/jhumaroo.png',
+    heroImageAlt: 'Creators filming short video reels and live streaming on Jhumaroo entertainment platform',
+    summary:
+      'Short-video social entertainment platform — share videos, stream live content, and connect with creators.',
+    body: [
+      'Jhumaroo is Vrushahi Group’s short-video social entertainment and digital creator platform, enabling users to create, share, and discover trending short-form video content.',
+      'Designed for high engagement and creative expression, Jhumaroo connects digital creators, influencers, and audiences through real-time video feeds, sound effects, and interactive social features.',
+      'Express your talent, build your community, and experience non-stop digital video entertainment anywhere, anytime.',
+    ],
+    externalSiteUrl: 'http://jhumaroo.in',
+    contentStatus: 'complete',
+    imageStatus: 'final',
+  },
 
   // --- Standalone ---------------------------------------------------------
   {
     slug: 'mines-and-minerals',
     name: 'Vrushahi Mines & Minerals',
     shortLabel: 'Mines & Minerals',
-    cluster: null,
+    cluster: 'Trade & Resources',
     heroImage: '/images/units/mines-and-minerals.png',
     heroImageAlt: 'Haul trucks working an open-cast mining site',
     summary: PLACEHOLDER_SUMMARY,
@@ -233,7 +252,7 @@ export const businessUnits = [
     slug: 'import-export',
     name: 'Vrushahi Import & Export',
     shortLabel: 'Import & Export',
-    cluster: null,
+    cluster: 'Trade & Resources',
     heroImage: '/images/units/import-export.png',
     heroImageAlt: 'Export cargo being prepared for international shipment',
     summary:
@@ -250,7 +269,7 @@ export const businessUnits = [
     slug: 'industries',
     name: 'Vrushahi Industries',
     shortLabel: 'Industries',
-    cluster: null,
+    cluster: 'Industries & Health',
     heroImage: '/images/units/industries.png',
     heroImageAlt: 'Manufacturing facility production floor',
     summary: PLACEHOLDER_SUMMARY,
@@ -266,7 +285,7 @@ export const businessUnits = [
     slug: 'pharmaceuticals',
     name: 'Vrushahi Pharmaceuticals',
     shortLabel: 'Pharmaceuticals',
-    cluster: null,
+    cluster: 'Industries & Health',
     heroImage: '/images/units/pharmaceuticals.png',
     heroImageAlt: 'Pharmaceutical production and packaging line',
     summary: PLACEHOLDER_SUMMARY,
@@ -349,30 +368,12 @@ export const businessUnits = [
     imageStatus: 'final',
   },
   {
-    slug: 'jhumaroo',
-    name: 'Jhumaroo Fashion & Lifestyle Marketplace',
-    shortLabel: 'Jhumaroo',
-    cluster: 'Digital Platforms & Mobility',
-    heroImage: '/images/units/jhumaroo.png',
-    heroImageAlt: 'Jhumaroo traditional Indian ethnic fashion boutique display',
-    summary:
-      'Curated e-commerce marketplace for authentic Indian ethnic fashion, handloom apparel, and handcrafted home decor.',
-    body: [
-      'Jhumaroo is an online boutique and lifestyle marketplace celebrating authentic Indian craftsmanship and contemporary fashion.',
-      'We feature handloom sarees, designer ethnic wear, artisan jewelry, and handcrafted home accents directly from master weavers and artisans.',
-      'Empowering regional weavers and designers, Jhumaroo brings timeless heritage fashion straight to your wardrobe.',
-    ],
-    externalSiteUrl: 'http://jhumaroo.in',
-    contentStatus: 'complete',
-    imageStatus: 'final',
-  },
-  {
     slug: 'now-cars-booking',
     name: 'Now Cars Mobility & Rental Booking',
     shortLabel: 'Now Cars Booking',
     cluster: 'Digital Platforms & Mobility',
     heroImage: '/images/units/now-cars-booking.png',
-    heroImageAlt: 'Now Cars booking app and chauffeur-driven vehicle service',
+    heroImageAlt: 'Luxury chauffeur-driven vehicles and modern car rental fleet',
     summary:
       'On-demand car rental, outstation cab booking, and urban chauffeur mobility services for personal and corporate travel.',
     body: [
@@ -392,9 +393,12 @@ export const businessUnits = [
  */
 export const CLUSTER_ORDER = [
   'Agri & Market',
-  'Events & Entertainment',
-  'Technologies',
+  'Trade & Resources',
   'Digital Platforms & Mobility',
+  'Events & Entertainment',
+  'Digital Entertainment',
+  'Technologies',
+  'Industries & Health',
 ]
 
 /** Route for a unit's detail page. */

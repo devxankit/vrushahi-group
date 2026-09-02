@@ -178,17 +178,37 @@ export default function MobileDrawer({ open, onClose }) {
                               ))
                             : groupColumns.map((column) => (
                                 <div key={column.title} className="mt-3 first:mt-2">
-                                  <p className="px-4 pb-1 text-[11px] font-semibold tracking-[0.16em] text-ink-400 uppercase">
-                                    {column.title}
-                                  </p>
-                                  {column.links.map((link) => (
-                                    <SubLink
-                                      key={link.to}
-                                      to={link.to}
-                                      label={link.label}
-                                      onClose={onClose}
-                                    />
-                                  ))}
+                                  {column.clusters
+                                    ? column.clusters.map((cluster) => (
+                                        <div key={cluster.title} className="mt-3 first:mt-0">
+                                          <p className="px-4 pb-1 text-[11px] font-semibold tracking-[0.16em] text-ink-400 uppercase">
+                                            {cluster.title}
+                                          </p>
+                                          {cluster.links.map((link) => (
+                                            <SubLink
+                                              key={link.to}
+                                              to={link.to}
+                                              label={link.label}
+                                              onClose={onClose}
+                                            />
+                                          ))}
+                                        </div>
+                                      ))
+                                    : (
+                                        <>
+                                          <p className="px-4 pb-1 text-[11px] font-semibold tracking-[0.16em] text-ink-400 uppercase">
+                                            {column.title}
+                                          </p>
+                                          {column.links.map((link) => (
+                                            <SubLink
+                                              key={link.to}
+                                              to={link.to}
+                                              label={link.label}
+                                              onClose={onClose}
+                                            />
+                                          ))}
+                                        </>
+                                      )}
                                 </div>
                               ))}
                         </div>
