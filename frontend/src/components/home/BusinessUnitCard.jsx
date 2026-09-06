@@ -46,7 +46,7 @@ export default function BusinessUnitCard({ unit }) {
           {isPending ? <Badge variant="pending">Content pending</Badge> : null}
         </div>
 
-        <p className="flex-1 text-sm leading-relaxed text-ink-500">{unit.summary}</p>
+        <p className="flex-1 text-sm leading-relaxed text-ink-500 text-justify">{unit.summary}</p>
 
         <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 opacity-0 transition-all duration-300 group-hover:opacity-100 max-md:opacity-100">
           View division

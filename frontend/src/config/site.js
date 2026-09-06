@@ -12,7 +12,7 @@ export const siteConfig = {
   /** Legacy homepage tagline (A4.1), typo-corrected from "Technologie". */
   tagline: 'Technology With a Human Touch',
   description:
-    'Vrushahi Group is a Sangli-based diversified conglomerate spanning agriculture and export, financial technology, digital marketing, events and entertainment, mining, infrastructure, pharmaceuticals, education and IT.',
+    'Vrushahi Group is a Sangli-based diversified conglomerate spanning agriculture and export, digital marketing, events and entertainment, mining, infrastructure, education and IT.',
   url: 'https://www.vrushahi.com',
 
   contact: {

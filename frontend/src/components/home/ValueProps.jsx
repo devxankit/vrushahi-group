@@ -14,9 +14,9 @@ import { getBusinessUnit, unitPath } from '@/data/businessUnits'
  * changes.
  */
 const FEATURED = [
-  { slug: 'events', icon: 'building' },
-  { slug: 'import-export', icon: 'arrowUpRight' },
-  { slug: 'vru-market', icon: 'shoppingBag' },
+  { slug: 'grhapoch', icon: 'shoppingBag' },
+  { slug: 'now-cars-booking', icon: 'arrowUpRight' },
+  { slug: 'nowstay', icon: 'building' },
 ]
 
 export default function ValueProps() {
@@ -28,9 +28,9 @@ export default function ValueProps() {
   return (
     <section className="relative z-10 -mt-16 pb-20 sm:-mt-20 sm:pb-24">
       <Container width="wide">
-        <StaggerGroup className="grid gap-5 md:grid-cols-3" stagger={0.1}>
+        <StaggerGroup className="grid gap-5 items-stretch md:grid-cols-3" stagger={0.1}>
           {featured.map(({ slug, icon, unit }) => (
-            <StaggerItem key={slug} variant="rise">
+            <StaggerItem key={slug} variant="rise" className="h-full">
               <Link
                 to={unitPath(unit)}
                 className="group flex h-full flex-col gap-4 rounded-3xl border border-ink-200 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-card-hover"
@@ -43,7 +43,7 @@ export default function ValueProps() {
                   {unit.shortLabel}
                 </h3>
 
-                <p className="flex-1 text-sm leading-relaxed text-ink-500">
+                <p className="flex-1 text-sm leading-relaxed text-ink-500 text-justify">
                   {unit.summary}
                 </p>
 

@@ -86,11 +86,11 @@ export function getGroupMenuColumns() {
       clusters: [
         {
           title: 'Technologies',
-          links: [makeUnitLink('financial-technologies'), makeUnitLink('information-technologies'), makeUnitLink('digital-marketing')].filter(Boolean),
+          links: [makeUnitLink('information-technologies'), makeUnitLink('digital-marketing')].filter(Boolean),
         },
         {
           title: 'Industries & Health',
-          links: [makeUnitLink('industries'), makeUnitLink('pharmaceuticals')].filter(Boolean),
+          links: [makeUnitLink('industries')].filter(Boolean),
         },
       ],
     },

@@ -31,11 +31,11 @@ export default function Values() {
 
       <section className="py-20 sm:py-24">
         <Container width="wide">
-          <StaggerGroup className="grid gap-6 lg:grid-cols-3" stagger={0.1}>
+          <StaggerGroup className="grid gap-6 items-stretch lg:grid-cols-3" stagger={0.1}>
             {values.pillars.map((pillar, index) => (
-              <StaggerItem key={pillar.id} variant="rise">
+              <StaggerItem key={pillar.id} variant="rise" className="h-full">
                 <article className="flex h-full flex-col gap-4 rounded-3xl border border-ink-200 bg-white p-8 shadow-card transition-shadow duration-300 hover:shadow-card-hover">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-amber-brand-500 font-display text-sm font-bold text-white">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-amber-brand-500 font-display text-sm font-bold text-white">
                     {index + 1}
                   </span>
 
@@ -43,7 +43,9 @@ export default function Values() {
                     {pillar.title}
                   </h2>
 
-                  <p className="text-base leading-relaxed text-ink-600">{pillar.body}</p>
+                  <p className="flex-1 text-base leading-relaxed text-ink-600 text-justify">
+                    {pillar.body}
+                  </p>
                 </article>
               </StaggerItem>
             ))}
