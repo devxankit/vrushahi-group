@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Seo from '@/components/seo/Seo'
 import PageHero from '@/components/layout/PageHero'
@@ -15,6 +16,7 @@ import BusinessUnitGrid from '@/components/home/BusinessUnitGrid'
 import CtaBand from '@/components/home/CtaBand'
 import NotFound from '@/pages/NotFound'
 import { businessUnits, getBusinessUnit } from '@/data/businessUnits'
+import { fetchUnitBySlug } from '@/services/api'
 
 /**
  * The single template behind all 15 division pages (PRD B5).
@@ -26,7 +28,28 @@ import { businessUnits, getBusinessUnit } from '@/data/businessUnits'
  */
 export default function BusinessUnitPage() {
   const { slug } = useParams()
-  const unit = getBusinessUnit(slug)
+  const staticUnit = getBusinessUnit(slug)
+  const [unit, setUnit] = useState(staticUnit)
+
+  useEffect(() => {
+    let isMounted = true
+    const fallback = getBusinessUnit(slug)
+    setUnit(fallback)
+
+    fetchUnitBySlug(slug)
+      .then((data) => {
+        if (isMounted && data) {
+          setUnit((prev) => ({ ...prev, ...data }))
+        }
+      })
+      .catch(() => {
+        // preserve fallback static data if API offline
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [slug])
 
   // Unknown slug → the 404 page, rendered in place so the URL is preserved.
   if (!unit) return <NotFound />
@@ -73,6 +96,24 @@ export default function BusinessUnitPage() {
               {isPending ? <ContentPendingNotice className="mb-10" /> : null}
 
               <Prose paragraphs={unit.body} size="lg" />
+
+              {unit.heroImage && unit.imageStatus === 'final' ? (
+                <Reveal className="my-10 overflow-hidden rounded-3xl border border-ink-200 bg-white p-3 shadow-card transition-shadow hover:shadow-card-hover">
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-ink-900">
+                    <img
+                      src={unit.heroImage}
+                      alt={unit.heroImageAlt || unit.name}
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+                    />
+                    <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-white/10 bg-ink-950/80 p-3.5 text-xs text-white backdrop-blur-md">
+                      <span className="font-semibold text-amber-brand-400">
+                        {unit.shortLabel} Showcase:
+                      </span>{' '}
+                      {unit.heroImageAlt || unit.summary}
+                    </div>
+                  </div>
+                </Reveal>
+              ) : null}
 
               {unit.sections?.map((section) => (
                 <div key={section.title} className="mt-16">

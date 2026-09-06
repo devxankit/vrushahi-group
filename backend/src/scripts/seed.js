@@ -162,6 +162,32 @@ const initialBusinessUnits = [
       'Designed for high engagement and creative expression, Jhumaroo connects digital creators, influencers, and audiences through real-time video feeds, sound effects, and interactive social features.',
       'Express your talent, build your community, and experience non-stop digital video entertainment anywhere, anytime.',
     ],
+    sections: [
+      {
+        title: 'Platform Features & Content Ecosystem',
+        body: [
+          'Jhumaroo provides a high-performance entertainment space designed for short-form content creators, digital influencers, and vibrant online communities.',
+        ],
+        items: [
+          {
+            title: 'Trending Short Video Reels',
+            body: 'Personalized video discovery engine serving high-definition short videos, dance challenges, music covers, and comedic sketches.',
+          },
+          {
+            title: 'Live Streaming & Interactive Gifting',
+            body: 'Direct real-time video broadcasting connecting creators with fans through live chat, audience interactions, and virtual applause.',
+          },
+          {
+            title: 'Audio Library & Sound Studio',
+            body: 'Extensive sound catalog featuring trending music, voice dubbing tools, background score filters, and audio mixing.',
+          },
+          {
+            title: 'Creator Monetization & Community',
+            body: 'Built-in creator monetization features, brand collaborations, and community analytics to help digital talent grow.',
+          },
+        ],
+      },
+    ],
     externalSiteUrl: 'http://jhumaroo.in',
     contentStatus: 'complete',
     imageStatus: 'final',
@@ -218,43 +244,7 @@ const initialBusinessUnits = [
     imageStatus: 'final',
     order: 10,
   },
-  {
-    slug: 'pharmaceuticals',
-    name: 'Vrushahi Pharmaceuticals',
-    shortLabel: 'Pharmaceuticals',
-    cluster: 'Industries & Health',
-    heroImage: '/images/units/pharmaceuticals.png',
-    heroImageAlt: 'Pharmaceutical production and packaging line',
-    summary: 'Detailed information about this division is being prepared and will be published here shortly.',
-    body: [
-      'Detailed information about this division is being prepared and will be published here shortly.',
-      'In the meantime, please get in touch and we will connect you with the right team within the Vrushahi Group.',
-    ],
-    externalSiteUrl: null,
-    contentStatus: 'placeholder',
-    imageStatus: 'final',
-    order: 11,
-  },
-  {
-    slug: 'financial-technologies',
-    name: 'Vrushahi Financial Technologies — Majha ATM',
-    shortLabel: 'Financial Technologies',
-    cluster: 'Technologies',
-    heroImage: '/images/units/financial-technologies.png',
-    heroImageAlt: 'Shopkeeper serving a customer at a Majha ATM banking point',
-    summary:
-      'Majha ATM — a hyper-local payments network that turns local shops into digital mini-banks.',
-    body: [
-      'Majha Atm a business conglomerate with interests across several sectors like technology, telecom & finance. Within our unique technology, we enable any local shops to function as a Digital Mini Bank helping them under one roof solution for providing smooth government & financial digital services. We are one of India’s largest tech-enabled Hyper-Local Payments Network offering various services like Cash Deposit, Cash Withdrawal, Balance Inquiry, Bill Payments, Aadhaar Enabled Services, Air Time Recharge, POS Services, Railway Ticketing Services, etc. through our authorized agents across India.',
-      'Our USP is our inherently strong tech DNA with a scalable, modular and secure platform architecture, which helps offer a significantly superior user experience enabling solutions.',
-      'We have created a cloud infrastructure with cutting edge technologies to empower our VLEs (Village Level Entrepreneur) with products and services pertinent to them and the customers.',
-      'By partnering with banks and financial institutions, we provide doorstep services to hundreds of millions of Indians who are unbanked or under-banked sector and having limited capability to resolve basic banking services and avail various government schemes.',
-    ],
-    externalSiteUrl: 'https://majhaatm.vrushahi.com',
-    contentStatus: 'complete',
-    imageStatus: 'final',
-    order: 12,
-  },
+
   {
     slug: 'information-technologies',
     name: 'Vrushahi Information Technologies',
@@ -403,6 +393,9 @@ export async function seedDatabase() {
     }
 
     // Seed & Sync Business Units into MongoDB Atlas
+    const activeSlugs = initialBusinessUnits.map((u) => u.slug)
+    await BusinessUnit.deleteMany({ slug: { $nin: activeSlugs } })
+
     for (const unit of initialBusinessUnits) {
       await BusinessUnit.findOneAndUpdate(
         { slug: unit.slug },

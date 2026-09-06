@@ -28,7 +28,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our Group"
             title={`${businessUnits.length} divisions, one group`}
-            description="Vrushahi operates across agriculture and export, financial technology, digital marketing, events and entertainment, mining, infrastructure, pharmaceuticals, education and IT."
+            description="Vrushahi operates across agriculture and export, digital marketing, events and entertainment, mining, infrastructure, education and IT."
           />
 
           <div className="mt-14">

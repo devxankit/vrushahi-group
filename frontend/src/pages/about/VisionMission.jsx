@@ -31,9 +31,9 @@ export default function VisionMission() {
 
       <section className="py-20 sm:py-24">
         <Container width="wide">
-          <StaggerGroup className="grid gap-6 lg:grid-cols-2" stagger={0.12}>
+          <StaggerGroup className="grid gap-6 items-stretch lg:grid-cols-2" stagger={0.12}>
             {visionMission.statements.map((statement, index) => (
-              <StaggerItem key={statement.id} variant="rise">
+              <StaggerItem key={statement.id} variant="rise" className="h-full">
                 <article className="relative flex h-full flex-col gap-5 overflow-hidden rounded-4xl border border-ink-200 bg-white p-9 shadow-card sm:p-11">
                   <span
                     aria-hidden="true"
@@ -46,7 +46,7 @@ export default function VisionMission() {
                     {statement.label}
                   </h2>
 
-                  <p className="relative text-lg leading-relaxed text-ink-700 sm:text-xl">
+                  <p className="relative flex-1 text-lg leading-relaxed text-ink-700 sm:text-xl text-justify">
                     {statement.body}
                   </p>
                 </article>

@@ -17,7 +17,7 @@ export default function GroupIndex() {
     <>
       <Seo
         title="Our Group"
-        description={`The ${businessUnits.length} divisions of the Vrushahi Group, spanning agriculture and export, financial technology, digital marketing, events and entertainment, mining, infrastructure, pharmaceuticals, education and IT.`}
+        description={`The ${businessUnits.length} divisions of the Vrushahi Group, spanning agriculture and export, digital marketing, events and entertainment, mining, infrastructure, education and IT.`}
       />
 
       <PageHero

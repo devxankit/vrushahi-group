@@ -19,7 +19,7 @@ export default function Prose({ paragraphs = [], size = 'base', className }) {
           key={paragraph.slice(0, 48)}
           delay={Math.min(index * 0.06, 0.3)}
           className={cn(
-            'leading-relaxed text-ink-600',
+            'leading-relaxed text-ink-600 text-justify',
             size === 'lg' ? 'text-lg' : 'text-base'
           )}
         >

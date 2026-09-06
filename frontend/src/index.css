@@ -139,6 +139,8 @@
 
   p {
     text-wrap: pretty;
+    text-align: justify;
+    text-justify: inter-word;
   }
 
   /* Visible keyboard focus everywhere — the legacy site had none. */
