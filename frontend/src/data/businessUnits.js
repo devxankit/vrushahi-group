@@ -255,6 +255,32 @@ export const businessUnits = [
         ],
       },
     ],
+    sections: [
+      {
+        title: 'Platform Features & Content Ecosystem',
+        body: [
+          'Jhumaroo provides a high-performance entertainment space designed for short-form content creators, digital influencers, and vibrant online communities.',
+        ],
+        items: [
+          {
+            title: 'Trending Short Video Reels',
+            body: 'Personalized video discovery engine serving high-definition short videos, dance challenges, music covers, and comedic sketches.',
+          },
+          {
+            title: 'Live Streaming & Interactive Gifting',
+            body: 'Direct real-time video broadcasting connecting creators with fans through live chat, audience interactions, and virtual applause.',
+          },
+          {
+            title: 'Audio Library & Sound Studio',
+            body: 'Extensive sound catalog featuring trending music, voice dubbing tools, background score filters, and audio mixing.',
+          },
+          {
+            title: 'Creator Monetization & Community',
+            body: 'Built-in creator monetization features, brand collaborations, and community analytics to help digital talent grow.',
+          },
+        ],
+      },
+    ],
     externalSiteUrl: 'http://jhumaroo.in',
     contentStatus: 'complete',
     imageStatus: 'final',
