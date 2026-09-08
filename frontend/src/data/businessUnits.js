@@ -297,11 +297,46 @@ export const businessUnits = [
     shortLabel: 'Industries',
     cluster: 'Industries & Health',
     heroImage: '/images/units/industries.png',
-    heroImageAlt: 'Manufacturing facility production floor',
-    summary: PLACEHOLDER_SUMMARY,
-    body: PLACEHOLDER_BODY,
-    externalSiteUrl: null,
-    contentStatus: 'placeholder',
+    heroImageAlt: 'Sur Kapur® premium camphor manufacturing and packaging by Vrushahi Industries',
+    summary:
+      'Vrushahi Industries manufactures and refines premium Sur Kapur® (Camphor / कपूर) — delivering 100% pure, soot-free, high-aroma camphor for sacred puja rituals, spiritual ceremonies, Ayurvedic wellness, and industrial uses.',
+    body: [
+      'Vrushahi Industries is the specialized manufacturing and chemical processing enterprise under Vrushahi Group, dedicated to the production of high-grade, refined Sur Kapur® (Camphor / कपूर).',
+      'Kapur (also known as Kapoor or Camphor) holds a sacred place in Indian culture and spiritual traditions. Used extensively in daily Pujas, Aarti, Hawans, and temple rituals, burning pure Kapur symbolizes the complete destruction of human ego before the divine light. Because pure camphor burns completely without leaving behind ash or toxic residue, it represents absolute purity, dispelling negative energies and surrounding the space with a holy, calming aroma.',
+      'Under our premier brand Sur Kapur®, Vrushahi Industries maintains strict quality control to manufacture 100% pure camphor tablets and blocks. Our specialized process ensures high crystal density, uniform tablet shape, zero soot emission, and long-lasting aromatic diffusion.',
+      'Beyond religious ceremonies, our refined Kapur products are widely utilized in Ayurvedic medicine, joint pain relief formulations, therapeutic vapor inhalants, room air purification, and natural insect repellent.',
+    ],
+    sections: [
+      {
+        title: 'Key Applications & Offerings',
+        items: [
+          {
+            title: 'Sur Kapur® for Sacred Rituals & Puja',
+            body: '100% pure, soot-free camphor tablets manufactured specifically for Aarti, Hawan, and sacred religious offerings with a clean burn and rich fragrance.',
+          },
+          {
+            title: 'Ayurvedic & Medicinal Grade Camphor',
+            body: 'High-purity camphor formulated for traditional herbal medicines, soothing balms, vapor steam inhalants, and topical pain relief.',
+          },
+          {
+            title: 'Household Air Purifier & Natural Insect Repellent',
+            body: 'Aromatic camphor blocks that naturally refresh indoor air quality, neutralize unpleasant odors, and protect fabrics against moths and pests.',
+          },
+        ],
+      },
+      {
+        title: 'Trade & Distribution Helpline',
+        items: [
+          {
+            title: 'Sur Kapur® Distribution Network',
+            body: 'For retail supply, bulk commercial packaging, or distributor partnerships, connect with Vrushahi Industries at +91 9970907005 or visit Vrushahi.com.',
+            cta: { label: 'Contact Vrushahi Industries', to: '/contact' },
+          },
+        ],
+      },
+    ],
+    externalSiteUrl: 'https://vrushahi.com',
+    contentStatus: 'complete',
     imageStatus: 'final',
   },
 
