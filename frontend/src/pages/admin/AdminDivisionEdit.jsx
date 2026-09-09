@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { fetchUnitBySlug, updateUnitAdmin } from '@/services/api'
+import { fetchUnitBySlug, updateUnitAdmin, uploadUnitImageAdmin } from '@/services/api'
 import Icon from '@/components/ui/Icon'
 import PageLoader from '@/components/ui/PageLoader'
 
@@ -9,6 +9,8 @@ export default function AdminDivisionEdit() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const [uploadingImage, setUploadingImage] = useState(false)
+  const [uploadError, setUploadError] = useState('')
   const [message, setMessage] = useState({ type: '', text: '' })
 
   const [unit, setUnit] = useState({
@@ -52,6 +54,29 @@ export default function AdminDivisionEdit() {
 
     loadUnit()
   }, [slug])
+
+  const handleImageFileChange = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    try {
+      setUploadingImage(true)
+      setUploadError('')
+      const result = await uploadUnitImageAdmin(file)
+      if (result && result.url) {
+        setUnit((prev) => ({
+          ...prev,
+          heroImage: result.url,
+          imageStatus: 'final',
+        }))
+        setMessage({ type: 'success', text: 'Image uploaded successfully from local disk!' })
+      }
+    } catch (err) {
+      setUploadError(err.message || 'Failed to upload image from disk.')
+    } finally {
+      setUploadingImage(false)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -226,22 +251,64 @@ export default function AdminDivisionEdit() {
 
         {/* Card 2: Image Configuration */}
         <div className="rounded-3xl border border-white/10 bg-ink-900/80 p-6 space-y-5">
-          <h2 className="font-display text-base font-bold text-white border-b border-white/10 pb-3">
-            Division Hero Photography
-          </h2>
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h2 className="font-display text-base font-bold text-white">
+              Division Hero Photography
+            </h2>
+            <span className="text-xs font-semibold text-emerald-400">Disk Upload Ready</span>
+          </div>
 
           <div className="grid gap-6 md:grid-cols-12">
             <div className="md:col-span-8 space-y-4">
+              {/* Local Disk Upload Input */}
+              <div>
+                <label className="block text-xs font-semibold text-ink-300 uppercase mb-2">
+                  Choose Image File from Local Disk / Computer
+                </label>
+
+                <div className="relative flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-white/20 bg-white/5 p-6 transition-all hover:border-brand-500 hover:bg-white/[0.08]">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageFileChange}
+                    disabled={uploadingImage}
+                    className="absolute inset-0 cursor-pointer opacity-0 w-full h-full"
+                    id="hero-file-upload-input"
+                  />
+                  <div className="flex flex-col items-center text-center space-y-2">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/20 text-brand-400">
+                      {uploadingImage ? (
+                        <Icon name="spinner" size={24} className="animate-spin" />
+                      ) : (
+                        <Icon name="upload" size={24} />
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-white">
+                        {uploadingImage ? 'Uploading Image to Server...' : 'Click or Drag & Drop local image file'}
+                      </p>
+                      <p className="text-[11px] text-ink-400 mt-1">
+                        JPG, PNG, WEBP, GIF, SVG (Up to 10MB)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {uploadError && (
+                  <p className="mt-2 text-xs font-medium text-red-400">{uploadError}</p>
+                )}
+              </div>
+
               <div>
                 <label className="block text-xs font-semibold text-ink-300 uppercase mb-1.5">
-                  Image Asset Path or Web URL
+                  Uploaded Image Path / URL (Auto-updated on upload)
                 </label>
                 <input
                   type="text"
                   value={unit.heroImage}
                   onChange={(e) => setUnit({ ...unit, heroImage: e.target.value })}
                   className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-white focus:border-brand-500 focus:outline-none"
-                  placeholder="/images/units/agriculture.png"
+                  placeholder="/uploads/unit-1725.jpg or /images/units/industries.png"
                 />
               </div>
 
@@ -254,24 +321,26 @@ export default function AdminDivisionEdit() {
                   value={unit.heroImageAlt}
                   onChange={(e) => setUnit({ ...unit, heroImageAlt: e.target.value })}
                   className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-white focus:border-brand-500 focus:outline-none"
+                  placeholder="Describe the photo for accessibility..."
                 />
               </div>
             </div>
 
-            <div className="md:col-span-4">
+            <div className="md:col-span-4 space-y-2">
               <label className="block text-xs font-semibold text-ink-300 uppercase mb-1.5">
                 Image Preview
               </label>
-              <div className="h-32 w-full overflow-hidden rounded-2xl border border-white/15 bg-ink-950">
+              <div className="relative h-44 w-full overflow-hidden rounded-2xl border border-white/15 bg-ink-950">
                 {unit.heroImage ? (
                   <img
                     src={unit.heroImage}
-                    alt={unit.heroImageAlt}
+                    alt={unit.heroImageAlt || unit.name}
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-xs text-ink-500">
-                    No image URL set
+                  <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center text-xs text-ink-500 gap-2">
+                    <Icon name="image" size={32} className="text-ink-600" />
+                    <span>No image uploaded</span>
                   </div>
                 )}
               </div>
