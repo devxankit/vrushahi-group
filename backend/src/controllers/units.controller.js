@@ -81,3 +81,18 @@ export async function deleteUnit(req, res) {
     message: `Division "${unit.name}" deleted successfully`,
   })
 }
+
+export async function uploadUnitImage(req, res) {
+  if (!req.file) {
+    throw new ApiError(400, 'Please select an image file to upload')
+  }
+
+  const imageUrl = `/uploads/${req.file.filename}`
+
+  res.json({
+    success: true,
+    message: 'Image uploaded successfully',
+    url: imageUrl,
+    filename: req.file.filename,
+  })
+}

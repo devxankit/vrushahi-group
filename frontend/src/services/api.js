@@ -132,6 +132,22 @@ export async function deleteUnitAdmin(slug) {
   return data
 }
 
+export async function uploadUnitImageAdmin(file) {
+  const formData = new FormData()
+  formData.append('image', file)
+
+  const res = await fetch(`${API_BASE}/units/admin/upload-image`, {
+    method: 'POST',
+    headers: {
+      ...getAuthHeader(),
+    },
+    body: formData,
+  })
+  const data = await res.json()
+  if (!res.ok) throw new Error(data.message || 'Failed to upload image')
+  return data
+}
+
 // --- Submissions ---
 export async function fetchSubmissionsAdmin(type = '', status = '') {
   const params = new URLSearchParams()
